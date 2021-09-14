@@ -8,9 +8,7 @@ import { Select } from './formSelection.model';
 })
 export class FormComponent implements OnInit {
 
-
-  
-  selectedDay: string = '';
+  selectedOption: string = '';
   constructor() { }
 
   ngOnInit(): void {
@@ -18,7 +16,7 @@ export class FormComponent implements OnInit {
   }
   selectChangeHandler (event: any) {
     //update the ui
-    this.selectedDay = event.target.value;
+    this.selectedOption = event.target.value;
     console.log(event.target.value)
   }
 
