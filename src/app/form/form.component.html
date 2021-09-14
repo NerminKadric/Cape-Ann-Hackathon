@@ -12,15 +12,18 @@
   
 </head>
 <body>
-    <select class="form-select" aria-label="Default select example">
-        <option selected>Odaberite kategoriju</option>
-        <option value="1">Izvod iz matične knjige vjenčanih</option>
-        <option value="2">Građevinske dozvole</option>
-        <option value="3">Izvod iz matične knjige rođenih</option>
-        <option value="3">Uvjerenje o državljanstvu</option>
-      </select>
+  <form action="" >
+    <select class="form-select" (change)="selectChangeHandler($event)">
+      <option selected>Odaberite kategoriju</option> 
+      <option value="1">Izvod iz matične knjige vjenčanih</option>
+      <option value="2">Građevinske dozvole</option>
 
-      <div class="vjencani">
+        
+    </select>
+  </form>
+
+
+      <div class="vjencani" >
         <h2>Unesite potrebne podatke</h2>
         <form>
           <input type="text" class="input-box" placeholder="Datum vjencanja"><br>
