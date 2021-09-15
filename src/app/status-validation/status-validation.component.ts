@@ -18,6 +18,8 @@ export class StatusValidationComponent implements OnInit {
     this.statusValidationForm = this.formBuilder.group({
       brojLicneKarte: new FormControl('', [
         Validators.required,
+        Validators.minLength(13),
+        Validators.maxLength(13)
       ])
     })
   }
@@ -29,7 +31,7 @@ export class StatusValidationComponent implements OnInit {
       if(this.statusValidationForm?.get('brojLicneKarte')?.hasError('required')){
         this.emptyForm = true;
         return;
-      } else if(this.statusValidationForm.get('brojLicneKarte')?.errors?.minlength || this.statusValidationForm.get('brojLicneKarte')?.errors?.minlength){
+      } else if(this.statusValidationForm.get('brojLicneKarte')?.errors?.minlength || this.statusValidationForm.get('brojLicneKarte')?.errors?.maxLength){
         this.minMaxLength = true;
         return;
       }
