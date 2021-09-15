@@ -1,0 +1,27 @@
+
+<div class="wrapper">
+    <div class="inside-wrapper">
+        <img class="lock" src="assets\statusValidationIcons\padlock.svg" alt="">
+        <form action="" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="input-div">
+                <h1>Registruj se</h1>
+                <span>Email*</span>
+                <input type="text" class="form-control input" formControlName="email" placeholder="mail@domena.com" id=""> 
+                <span>Lozinka*</span>
+                <input type="text" class="form-control input" formControlName="password" placeholder="Lozinka" id=""> 
+                <span>Potvrdi lozinku*</span>
+                <input type="text" class="form-control input" formControlName="confirmPassword" placeholder="Potvrdi lozinku" id=""> 
+                <span>Broj Telefona*</span>
+                <input type="text" class="form-control input" formControlName="phoneNumber" placeholder="Potvrdi lozinku" id=""> 
+                <span *ngIf="emptyForm" class="error-msg">Molimo unesite sva polja.</span>
+            </div>
+            <div class="under-form">
+                <p>Imate racun? <a routerLink="/register">Ulogujte se</a>.</p>
+                <button class="btn btn-primary">Nastavi</button>
+            </div>
+
+        </form>
+ 
+    </div>
+
+</div>
