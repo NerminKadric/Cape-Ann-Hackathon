@@ -12,7 +12,7 @@
   
 </head>
 <body>
-  <form action="" >
+  <form action="" class="form-group">
     <select class="form-select" (change)="selectChangeHandler($event)">
       <option selected>Odaberite kategoriju</option> 
       <option value="1">Izvod iz matične knjige vjenčanih</option>
@@ -23,26 +23,30 @@
   </form>
 
 
-      <div class="vjencani" *ngIf="selectedOption=='1'">
+      <div class="form-group" *ngIf="selectedOption=='1'">
         <h2>Unesite potrebne podatke</h2>
-        <form>
-          <input type="text" class="input-box" placeholder="Datum vjencanja"><br>
-          <input type="text" class="input-box" placeholder="Mjesto vjencanja"><br>
-          <input type="text" class="input-box" placeholder="Prezime i ime supruga"><br>
-          <input type="text" class="input-box" placeholder="Djevojacko prezime i ime supruge"><br>
+        <form [formGroup]="marriageForm" (submit)="submitMarriageForm()">
+          <input type="text" class="form-control" placeholder="Datum vjencanja" formControlName="dateOfMarriage"><br>
+          <span *ngIf="marriageForm.controls.dateOfMarriage.errors.required">Datum vjencanja je obavezan</span>
+          <input type="text" class="form-control" placeholder="Mjesto vjencanja"><br>
+          <input type="text" class="form-control" placeholder="Prezime supruga"><br>
+          <input type="text" class="form-control" placeholder="Ime supruga"><br>
+          <input type="text" class="form-control" placeholder="Djevojacko prezime supruge"><br>
+          <input type="text" class="form-control" placeholder="Ime supruge"><br>
         </form>
       </div>
 
-      <div class="vjencani" *ngIf="selectedOption=='2'">
+      <div class="form-group" *ngIf="selectedOption=='2'">
         <h2>Unesite potrebne podatke</h2>
-        <form>
-          <input type="text" class="input-box" placeholder="Ime"><br>
-          <input type="text" class="input-box" placeholder="Prezime"><br>
-          <input type="text" class="input-box" placeholder="JMBG"><br>
-          <input type="text" class="input-box" placeholder="Adresa"><br>
-          <input type="text" class="input-box" placeholder="Broj telefona"><br>
-          <input type="text" class="input-box" placeholder="E-mail"><br>
-          <input type="text" class="input-box" placeholder="Parcela"><br>
+        <form [formGroup]="buildingPermitForm" (submit)="submitBuildingPermit()">
+          <input type="text" class="form-control" placeholder="Ime"><br>
+          <input type="text" class="form-control" placeholder="Prezime"><br>
+          <input type="text" class="form-control" placeholder="JMBG"><br>
+          <input type="text" class="form-control" placeholder="Adresa"><br>
+          <input type="text" class="form-control" placeholder="Broj telefona"><br>
+          <input type="text" class="form-control" placeholder="E-mail"><br>
+          <input type="text" class="form-control" placeholder="Parcela"><br>
+          <button class="submit">Submit</button>
         </form>
       </div>
 
