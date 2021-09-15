@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Select } from './formSelection.model';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
