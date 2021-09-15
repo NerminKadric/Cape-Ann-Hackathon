@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
@@ -9,7 +9,6 @@ import { ReqsatusComponent } from './reqsatus/reqsatus.component';
 import { StatusValidationComponent } from './status-validation/status-validation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon'
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,10 +20,9 @@ import { MatIconModule } from '@angular/material/icon'
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
     BrowserAnimationsModule,
     MatIconModule,
-
-   
   ],
   providers: [],
   bootstrap: [AppComponent]
