@@ -23,13 +23,26 @@
   </form>
 
 
-      <div class="vjencani" >
+      <div class="vjencani" *ngIf="selectedOption=='1'">
         <h2>Unesite potrebne podatke</h2>
         <form>
           <input type="text" class="input-box" placeholder="Datum vjencanja"><br>
           <input type="text" class="input-box" placeholder="Mjesto vjencanja"><br>
           <input type="text" class="input-box" placeholder="Prezime i ime supruga"><br>
           <input type="text" class="input-box" placeholder="Djevojacko prezime i ime supruge"><br>
+        </form>
+      </div>
+
+      <div class="vjencani" *ngIf="selectedOption=='2'">
+        <h2>Unesite potrebne podatke</h2>
+        <form>
+          <input type="text" class="input-box" placeholder="Ime"><br>
+          <input type="text" class="input-box" placeholder="Prezime"><br>
+          <input type="text" class="input-box" placeholder="JMBG"><br>
+          <input type="text" class="input-box" placeholder="Adresa"><br>
+          <input type="text" class="input-box" placeholder="Broj telefona"><br>
+          <input type="text" class="input-box" placeholder="E-mail"><br>
+          <input type="text" class="input-box" placeholder="Parcela"><br>
         </form>
       </div>
 
