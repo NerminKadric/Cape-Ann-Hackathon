@@ -8,13 +8,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ReqsatusComponent } from './reqsatus/reqsatus.component';
 import { StatusValidationComponent } from './status-validation/status-validation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule } from '@angular/material/icon'
+import { MatIconModule } from '@angular/material/icon';
+import { RegisterComponent } from './register/register.component'
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     ReqsatusComponent,
-    StatusValidationComponent
+    StatusValidationComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

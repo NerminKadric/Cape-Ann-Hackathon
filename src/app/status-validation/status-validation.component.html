@@ -4,13 +4,18 @@
         <img class="lock" src="assets\statusValidationIcons\padlock.svg" alt="">
         <form action="" [formGroup]="statusValidationForm" (ngSubmit)="onSubmit()">
             <div class="input-div">
-                <h1>Molimo unesite broj licne karte</h1>
-                <input type="text" class="form-control input" formControlName="brojLicneKarte" placeholder="Broj licne karte" id=""> 
-                <span *ngIf="emptyForm" class="error-msg">Molimo unesite broj licne karte.</span>
-                <span *ngIf="minMaxLength" class="error-msg">Broj licne karte sadrzi 9 cifara.</span>
+                <h1>Uloguj se</h1>
+                <span>Email</span>
+                <input type="text" class="form-control input" formControlName="email" placeholder="mail@domena.com" id=""> 
+                <span>Lozinka</span>
+                <input type="text" class="form-control input" formControlName="password" placeholder="Lozinka" id=""> 
+                <span *ngIf="emptyForm" class="error-msg">Molimo unesite email i lozinku.</span>
             </div>
-        
-            <button class="btn btn-primary">Nastavi</button>
+            <div class="under-form">
+                <p>Nemate racun? <a routerLink="/register">Napravite racun</a>.</p>
+                <button class="btn btn-primary">Nastavi</button>
+            </div>
+
         </form>
  
     </div>
