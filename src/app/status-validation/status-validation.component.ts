@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
@@ -16,8 +17,11 @@ export class StatusValidationComponent implements OnInit {
 
   ngOnInit(): void {
     this.statusValidationForm = this.formBuilder.group({
-      brojLicneKarte: new FormControl('', [
+      email: new FormControl('', [
         Validators.required,
+      ]),
+      password: new FormControl('', [
+        Validators.required
       ])
     })
   }
@@ -26,15 +30,11 @@ export class StatusValidationComponent implements OnInit {
     this.emptyForm = false;
     this.minMaxLength = false;
     if(this.statusValidationForm.invalid){
-      if(this.statusValidationForm?.get('brojLicneKarte')?.hasError('required')){
+      if(this.statusValidationForm?.get('email')?.hasError('required') || this.statusValidationForm.get('password').hasError('required')){
         this.emptyForm = true;
         return;
-      } else if(this.statusValidationForm.get('brojLicneKarte')?.errors?.minlength || this.statusValidationForm.get('brojLicneKarte')?.errors?.minlength){
-        this.minMaxLength = true;
-        return;
-      }
+      } 
     }
-
   }
 
 }

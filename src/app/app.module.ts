@@ -10,12 +10,14 @@ import { StatusValidationComponent } from './status-validation/status-validation
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component'
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     ReqsatusComponent,
-    StatusValidationComponent
+    StatusValidationComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
