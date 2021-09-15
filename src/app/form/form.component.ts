@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -12,7 +13,9 @@ export class FormComponent implements OnInit {
   selectedOption: string = '';
   marriageForm!: FormGroup;
   buildingPermitForm!: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              private http: HttpClient
+              ) { }
 
   ngOnInit(): void {
     this.buildingPermitForm = this.formBuilder.group({
@@ -21,12 +24,13 @@ export class FormComponent implements OnInit {
       lastName: [null, [Validators.required]],
       jmbg: [null, [Validators.required, Validators.pattern(this.jmbgRegx), Validators.minLength(13)]],
       phoneNumber: [null],
-      address: [null]
+      address: [null],
+      lot: [null]
     })
 
     this.marriageForm = this.formBuilder.group({
       dateOfMarriage: [null, [Validators.required]],
-      placeOfMarriage: [null, [Validators.required]],
+      marriageLocation: [null, [Validators.required]],
       groomFirstName: [null, [Validators.required]],
       groomLastName: [null, [Validators.required]],
       brideMaidenLastName: [null, [Validators.required]],
@@ -40,15 +44,24 @@ export class FormComponent implements OnInit {
   }
 
   submitBuildingPermit() {
-    if (!this.buildingPermitForm.valid) {
-      return;
-    }
+    console.log(this.buildingPermitForm.value);
+    this.http.post('http://localhost:3000/permits/building-permit/', this.buildingPermitForm.value)
+    .subscribe(responseData => {
+      console.log("User successfully registered");
+    }, errorResponse => {
+      console.log(errorResponse);
+    })
   }
 
   submitMarriageForm() {
-    if (!this.buildingPermitForm.valid) {
-      return;
-    }
+    console.log(this.marriageForm.value);
+    this.http.post('http://localhost:3000/permits/marriage-permit/', this.marriageForm.value)
+    .subscribe(responseData => {
+      console.log("User successfully registered");
+    }, errorResponse => {
+      console.log(errorResponse);
+    })
+
   }
 
 }
